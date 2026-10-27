@@ -166,11 +166,12 @@ function CheckoutPage({ t }: { t: Therapist }) {
    
       var order = await api.createOrder(d);
     
-      order.upiId = getupi?.upiId ?? "";
-      order.payeeName = getupi?.payeeName ?? "UPI Payee";
+      order.upiId = getupi.upiId;
+      order.payeeName = getupi.payeeName;
 
       upiFor.current = key;
-   console.log(order);
+   console.log(order,getupi);
+  
       setUpi(order);
       setUpiOpen(true);
     } catch (err) {
