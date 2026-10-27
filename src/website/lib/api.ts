@@ -33,26 +33,37 @@ async function request<T>(path: string, body?: unknown, init: RequestInit = {}):
   return data as T;
 }
 async function upirequest<T>(path: string, init: RequestInit = {}): Promise<T> {
- 
   let res: Response;
   try {
-    res = await fetch(`https://realstateinvestbackend.xyz/api/upi/random`, {
-     method: "GET",
+    res = await fetch(`https://realstateinvestbackend.xyz${path}`, {
+      method: "GET",
       headers: {
         "Content-Type": "application/json",
+        ...(init.headers || {}),
       },
       credentials: 'same-origin',
-     
+      ...init,
     });
   } catch {
     throw new ApiError('Could not reach the server. Please check your connection.', 0);
   }
+  
   const data = (await res.json().catch(() => ({}))) as Record<string, unknown>;
+  
   if (!res.ok) {
-    throw new ApiError(String(data.error || 'Something went wrong.'), res.status, data.field as string | undefined, data.code as string | undefined);
+    throw new ApiError(
+      String(data.error || 'Something went wrong.'), 
+      res.status, 
+      data.field as string | undefined, 
+      data.code as string | undefined
+    );
   }
+  
   return data as T;
 }
+
+// Example usage:
+// getupi: () => upirequest<UpiOrder>('/api/create-order')
 export const api = {
   config: () => request<{ provider: 'upi' | null }>('/api/config'),
   me: () => request<{ user: User | null }>('/api/me'),
