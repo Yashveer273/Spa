@@ -1,0 +1,226 @@
+{
+  "_readme": "Starting copy only: copied into MongoDB the first time the server runs. After that, edit therapists and offers in the admin dashboard (Therapists / Offers tabs).",
+  "visitCharge": 149,
+  "businessWhatsapp": "919244092230",
+  "contact": {
+    "whatsapp": "919244092230",
+    "phone": "919244092230",
+    "instagram": "",
+    "email": "",
+    "address": "Vijay Nagar, Indore",
+    "hours": "Daily, 10 AM - 10 PM"
+  },
+  "therapistDefaults": {
+    "experience": "2+ years",
+    "specializes": "Relaxation",
+    "languages": "Hindi, English",
+    "about": "A certified massage therapist trained in relaxation and stress-relief therapies, known for gentle techniques and personalised care."
+  },
+  "therapists": {
+    "basic": [
+      {
+        "name": "Subhi",
+        "rating": 4.9,
+        "reviews": 128,
+        "speciality": "Relaxation Massage",
+        "price": 999,
+        "photo": "basic-1.jpg"
+      },
+      {
+        "name": "Nisha",
+        "rating": 4.9,
+        "reviews": 22,
+        "speciality": "Wellness Massage",
+        "price": 1399,
+        "photo": "basic-2.jpg"
+      },
+      {
+        "name": "Pihu",
+        "rating": 4.9,
+        "reviews": 10,
+        "speciality": "Swedish Massage",
+        "price": 1499,
+        "photo": "basic-3.jpg"
+      },
+      {
+        "name": "Yanvi",
+        "rating": 4.8,
+        "reviews": 25,
+        "speciality": "Full body massage",
+        "price": 999,
+        "photo": "basic-4.jpg"
+      },
+      {
+        "name": "Riya",
+        "rating": 4.9,
+        "reviews": 33,
+        "speciality": "Full body massage",
+        "price": 999,
+        "photo": "basic-5.jpg"
+      },
+      {
+        "name": "Ankita",
+        "rating": 4.8,
+        "reviews": 69,
+        "speciality": "Relaxed",
+        "price": 899,
+        "photo": "basic-6.jpg"
+      },
+      {
+        "name": "Trisha",
+        "rating": 5,
+        "reviews": 69,
+        "speciality": "Relaxed",
+        "price": 1499,
+        "photo": "basic-7.jpg"
+      },
+      {
+        "name": "Ayushi",
+        "rating": 4.9,
+        "reviews": 38,
+        "speciality": "Full body massage",
+        "price": 2499,
+        "photo": "basic-8.jpg"
+      },
+      {
+        "name": "Priya",
+        "rating": 4.9,
+        "reviews": 69,
+        "speciality": "Full body massage",
+        "price": 999,
+        "photo": "basic-9.jpg"
+      },
+      {
+        "name": "Vanya",
+        "rating": 5,
+        "reviews": 29,
+        "speciality": "Relaxed",
+        "price": 1999,
+        "photo": "basic-10.jpg"
+      },
+      {
+        "name": "Nandni",
+        "rating": 5,
+        "reviews": 66,
+        "speciality": "Relaxed",
+        "price": 1299,
+        "photo": "basic-11.jpg"
+      },
+      {
+        "name": "Shreya",
+        "rating": 4.9,
+        "reviews": 12,
+        "speciality": "Head massage",
+        "price": 1699,
+        "photo": "basic-12.jpg"
+      },
+      {
+        "name": "Aruhi",
+        "rating": 4.8,
+        "reviews": 16,
+        "speciality": "Relaxed",
+        "price": 999,
+        "photo": "basic-13.jpg"
+      },
+      {
+        "name": "Harshita",
+        "rating": 4.8,
+        "reviews": 19,
+        "speciality": "Relaxed",
+        "price": 1299,
+        "photo": "basic-14.jpg"
+      }
+    ],
+    "therapist": [
+      {
+        "name": "Joya",
+        "rating": 4.9,
+        "reviews": 44,
+        "speciality": "Foot Reflexology",
+        "price": 2999,
+        "photo": "therapist-1.jpg"
+      },
+      {
+        "name": "Cheiin",
+        "rating": 4.9,
+        "reviews": 53,
+        "speciality": "Relaxation Massage",
+        "price": 2999,
+        "photo": "therapist-2.jpg"
+      },
+      {
+        "name": "Lekki",
+        "rating": 4.9,
+        "reviews": 66,
+        "speciality": "Thai Massage",
+        "price": 2999,
+        "photo": "therapist-3.jpg"
+      },
+      {
+        "name": "Yesshi",
+        "rating": 4.9,
+        "reviews": 66,
+        "speciality": "Full body massage",
+        "price": 2999,
+        "photo": "therapist-4.jpg"
+      },
+      {
+        "name": "Pema",
+        "rating": 4.9,
+        "reviews": 103,
+        "speciality": "Hot Stone Massage",
+        "price": 2999,
+        "photo": "therapist-5.jpg"
+      }
+    ],
+    "premium": [
+      {
+        "name": "Kriti",
+        "rating": 4.9,
+        "reviews": 63,
+        "speciality": "Relaxed",
+        "price": 14999,
+        "photo": "premium-1.jpg"
+      },
+      {
+        "name": "Shashi",
+        "rating": 5,
+        "reviews": 12,
+        "speciality": "Relaxed",
+        "price": 9999,
+        "photo": "premium-2.jpg"
+      },
+      {
+        "name": "Anuradha",
+        "rating": 5,
+        "reviews": 44,
+        "speciality": "Relaxed",
+        "price": 8999,
+        "photo": "premium-3.jpg"
+      }
+    ]
+  },
+  "offers": [
+    {
+      "code": "SPA20",
+      "title": "Spa Offer",
+      "desc": "Get 20% off your at-home massage booking.",
+      "kind": "percent",
+      "value": 20
+    },
+    {
+      "code": "WELCOME100",
+      "title": "Welcome Offer",
+      "desc": "Flat ₹100 off your first booking with us.",
+      "kind": "flat",
+      "value": 100
+    },
+    {
+      "code": "APKA200",
+      "title": "Referral Bonus",
+      "desc": "Referred by a friend? Take ₹200 off any session.",
+      "kind": "flat",
+      "value": 200
+    }
+  ]
+}

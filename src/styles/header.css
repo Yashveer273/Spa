@@ -1,0 +1,176 @@
+/* ====== Shared header panels: side menu, notifications, city picker ====== */
+
+/* --- Side menu drawer --- */
+.hd-overlay { position: fixed; inset: 0; z-index: 90; background: rgba(15, 20, 10, .45); opacity: 0; transition: opacity .3s; }
+.hd-overlay.show { opacity: 1; }
+.hd-drawer {
+  position: fixed; top: 0; right: 0; bottom: 0; z-index: 95;
+  width: min(380px, 100%); background: #fff; overflow-y: auto;
+  transform: translateX(100%); transition: transform .3s ease; visibility: hidden;
+  box-shadow: -10px 0 40px rgba(0,0,0,.15);
+  padding-bottom: 30px;
+}
+.hd-drawer.open { transform: none; visibility: visible; }
+.hd-drawer-head { display: flex; justify-content: space-between; align-items: center; padding: 18px 18px 18px; border-bottom: 1px solid var(--line); position: sticky; top: 0; background: #fff; z-index: 1; }
+.hd-drawer-head span { font-size: 16px; font-weight: 700; letter-spacing: 4px; color: var(--ink); }
+.hd-x { width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; color: var(--ink); }
+.hd-x:hover { background: #f4f1ea; }
+.hd-x svg { width: 22px; height: 22px; stroke-width: 1.8; }
+
+.hd-main { padding: 6px 0 10px; border-bottom: 1px solid var(--line); }
+.hd-item { width: 100%; display: flex; align-items: center; gap: 16px; padding: 16px 18px; font-size: 17px; color: var(--ink); text-align: left; transition: background .15s; }
+.hd-item svg { width: 21px; height: 21px; stroke-width: 1.6; }
+.hd-item:hover, .hd-item:focus-visible { background: #f6f4ee; outline: none; }
+.hd-item.current { color: var(--green); font-weight: 500; }
+.hd-item.sm { font-size: 16px; padding: 14px 18px; }
+.hd-item.sm svg { width: 19px; height: 19px; }
+.hd-section { font-size: 12px; font-weight: 600; letter-spacing: 2.5px; color: var(--muted); padding: 22px 18px 6px; }
+
+/* --- Shared popover base --- */
+.hd-pop { position: absolute; top: 60px; z-index: 80; animation: popIn .18s ease; }
+.hd-pop[hidden] { display: none; }
+@keyframes popIn { from { opacity: 0; transform: translateY(-6px); } }
+
+/* --- Notifications --- */
+.notif { right: 16px; width: min(440px, calc(100vw - 32px)); background: #fffdf8; border: 1px solid #e3e0d2; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,.2); color: var(--ink); }
+.notif-head { display: flex; align-items: center; gap: 14px; background: #20341a; color: #fff; padding: 20px 20px; }
+.notif-bell { width: 50px; height: 50px; border-radius: 50%; border: 1.5px solid rgba(201,169,97,.6); color: var(--gold-soft); display: grid; place-items: center; flex-shrink: 0; background: rgba(255,255,255,.05); }
+.notif-bell svg { width: 20px; height: 20px; }
+.notif-head > div { flex: 1; min-width: 0; }
+.notif-head b { display: block; font-size: 18px; font-weight: 700; }
+.notif-head small { display: block; font-size: 13px; color: rgba(255,255,255,.75); }
+.notif-count { background: rgba(255,255,255,.12); color: var(--gold-soft); font-size: 13px; font-weight: 600; padding: 5px 12px; border-radius: 999px; white-space: nowrap; align-self: flex-start; margin-top: 4px; }
+.notif-body { padding: 16px; }
+.notif-empty { background: #fff; border: 1px solid #ebe8dd; border-radius: 20px; padding: 26px 20px 24px; text-align: center; }
+.notif-ring { width: 90px; height: 90px; border-radius: 50%; background: #f1eee5; display: grid; place-items: center; margin: 0 auto 16px; }
+.notif-ring span { width: 66px; height: 66px; border-radius: 50%; background: #ebefdf; display: grid; place-items: center; color: var(--ink); }
+.notif-ring svg { width: 24px; height: 24px; }
+.notif-empty b { font-size: 18px; font-weight: 600; }
+.notif-empty p { font-size: 14.5px; color: var(--muted); margin-top: 10px; line-height: 1.6; }
+.notif-foot { border-top: 1px solid #ebe8dd; padding: 14px 16px 16px; }
+.notif-foot .btn { padding: 15px; font-weight: 600; }
+
+/* --- City picker --- */
+.city { right: 16px; width: 260px; background: #fffdf6; border: 1px solid #e3e0d2; border-radius: 18px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,.2); color: var(--ink); }
+.city-head { font-size: 12.5px; font-weight: 600; letter-spacing: 1px; color: var(--muted); padding: 16px 18px 12px; border-bottom: 1px solid #ece8da; }
+.city-opt { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 16px 18px; font-size: 15px; font-weight: 600; color: var(--ink); text-align: left; }
+.city-opt:hover { background: #f4f2e8; }
+.city-opt.on { background: #ebefdf; }
+.city-opt svg { width: 18px; height: 18px; stroke-width: 2.2; }
+.city-note { background: #fdf6e6; border-top: 1px solid #f0e6c8; padding: 14px 18px; font-size: 13px; color: var(--text); line-height: 1.5; }
+.city-note[hidden] { display: none; }
+.city-pill .chev { transition: transform .2s; }
+.city-pill.open .chev { transform: rotate(180deg); }
+
+/* --- Toast --- */
+.hd-toast { position: fixed; left: 50%; bottom: 110px; transform: translate(-50%, 20px); background: var(--ink); color: #fff; padding: 10px 18px; border-radius: 999px; font-size: 13px; opacity: 0; transition: .3s; z-index: 120; pointer-events: none; white-space: nowrap; }
+.hd-toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+@media (max-width: 640px) {
+  .hd-drawer { width: 100%; }
+  .notif { right: 8px; width: calc(100vw - 16px); }
+  .city { right: 8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hd-drawer, .hd-overlay { transition: none; }
+  .hd-pop { animation: none; }
+}
+
+/* Keep open header panels above the floating "tap to book" hint and bottom nav */
+.topbar { z-index: 65; }
+
+/* Header dissolves while scrolling down and returns when scrolling up (see js/header.js) */
+.topbar { transition: opacity .35s ease, transform .35s ease; will-change: opacity, transform; }
+.topbar.hd-hidden { opacity: 0; transform: translateY(-100%); pointer-events: none; }
+@media (prefers-reduced-motion: reduce) {
+  .topbar { transition: opacity .2s linear; }
+  .topbar.hd-hidden { transform: none; }
+}
+
+/* ===== Phone header (≤ 640px) – matches the AAPNA SPA app layout =====
+   avatar left · lotus + AAPNA SPA centred · bell + menu right · city pill hanging below on the right */
+.brand-lotus { width: 26px; height: 14px; color: var(--gold); margin-bottom: 1px; }
+@media (max-width: 640px) {
+  .topbar-inner { height: 72px; }
+  .avatar { width: 46px; height: 46px; border-width: 2px; flex-shrink: 0; }
+  .brand {
+    position: absolute; left: 50%; transform: translateX(-50%); flex: none;
+    font-size: 21px; letter-spacing: 1.5px; padding: 0; line-height: 1.05;
+  }
+  .topbar-actions { gap: 4px; }
+  .topbar-actions .icon-btn { display: grid; width: 40px; height: 40px; }
+  .topbar-actions .icon-btn svg { width: 24px; height: 24px; stroke-width: 1.8; }
+  .city-pill {
+    position: absolute; right: 16px; top: calc(100% - 18px); z-index: 2;
+    padding: 8px 14px; font-size: 14px; gap: 6px;
+    border: 1px solid #e6dfcb; box-shadow: 0 6px 16px rgba(31, 42, 20, .14);
+  }
+  .city-pill .chev { display: inline; }
+  .city { top: 108px; }          /* city list opens under the hanging pill */
+}
+@media (max-width: 360px) {
+  .avatar { width: 40px; height: 40px; }
+  .brand { font-size: 18px; letter-spacing: 1px; }
+  .topbar-actions .icon-btn { width: 36px; height: 36px; }
+}
+@media (max-width: 640px) {
+  .topbar-inner { height: 60px; }
+  .avatar { width: 36px; height: 36px; }
+  .brand { font-size: 19px; }
+  .brand-lotus { width: 22px; height: 12px; }
+  .topbar-actions .icon-btn { width: 36px; height: 36px; }
+  .topbar-actions .icon-btn svg { width: 22px; height: 22px; }
+  .city-pill { top: calc(100% - 14px); right: 12px; padding: 5px 11px; font-size: 12.5px; gap: 5px; }
+  .city-pill svg { width: 12px; height: 12px; }
+  .city { top: 92px; }
+}
+@media (max-width: 640px) {
+  .city-pill { top: calc(100% - 10px); }   /* sits just below the bell/menu icons */
+  .city { top: 96px; }
+}
+
+/* Notification items (payment reminders for logged-in customers) */
+.topbar-actions .icon-btn { position: relative; }
+.bell-dot { position: absolute; top: 2px; right: 2px; min-width: 17px; height: 17px; padding: 0 4px; border-radius: 999px; background: var(--gold); color: #1f2a14; font-size: 10.5px; font-weight: 700; line-height: 17px; text-align: center; border: 2px solid #1a2410; box-sizing: content-box; }
+.notif-actions { background: #20341a; padding: 0 20px 18px; margin-top: -4px; }
+.notif-read { display: inline-flex; align-items: center; gap: 8px; background: #f3efe4; color: var(--ink); font-weight: 600; font-size: 14px; padding: 9px 18px; border-radius: 999px; }
+.notif-read svg { width: 16px; height: 16px; }
+.notif-body { display: grid; gap: 12px; max-height: min(60vh, 420px); overflow-y: auto; }
+.notif-item { display: flex; gap: 14px; background: #fff; border: 1px solid #ebe8dd; border-radius: 20px; padding: 16px; }
+.notif-item.unread { border-color: #e2cf96; background: #fffcf3; }
+.notif-ic { position: relative; width: 50px; height: 50px; border-radius: 50%; background: #f6ebcd; color: var(--ink); display: grid; place-items: center; flex-shrink: 0; }
+.notif-ic svg { width: 18px; height: 18px; }
+.notif-item.unread .notif-ic::after { content: ""; position: absolute; top: -2px; right: -2px; width: 12px; height: 12px; border-radius: 50%; background: var(--gold); border: 2px solid #fffcf3; }
+.notif-text { flex: 1; min-width: 0; }
+.notif-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+.notif-top b { font-size: 16px; font-weight: 700; color: var(--ink); }
+.notif-id { background: #f6ebcd; color: #6b5420; font-size: 12.5px; font-weight: 700; padding: 3px 9px; border-radius: 8px; white-space: nowrap; }
+.notif-text p { font-size: 14.5px; color: var(--muted); line-height: 1.5; margin: 4px 0 10px; }
+.notif-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.notif-when { background: #efede5; color: #5b6a37; font-size: 12.5px; font-weight: 600; padding: 4px 11px; border-radius: 999px; }
+.notif-pay { background: var(--dark); color: #fff; font-size: 13px; font-weight: 600; padding: 6px 14px; border-radius: 999px; }
+.notif-pay:hover { background: var(--darker); }
+.notif-pay:disabled { opacity: .7; cursor: wait; }
+
+/* City picker: "Use my current location" */
+.city-locate { color: var(--green); border-bottom: 1px solid #ece8da; }
+.city-locate span { display: flex; align-items: center; gap: 10px; }
+.city-locate svg { width: 18px; height: 18px; }
+.city-locate:disabled { opacity: .7; cursor: wait; }
+
+/* City picker: type a city by hand */
+.city-type { display: flex; gap: 8px; padding: 10px 14px; border-bottom: 1px solid #ece8da; }
+.city-type input { flex: 1; min-width: 0; padding: 10px 12px; border-radius: 10px; border: 1.5px solid #e3e0d2; background: #fff; font: inherit; font-size: 14px; color: var(--ink); outline: none; }
+.city-type input:focus { border-color: var(--green); }
+.city-type button { padding: 0 14px; border-radius: 10px; background: var(--dark); color: #fff; font-weight: 600; font-size: 14px; }
+.city-type button:disabled { opacity: .45; cursor: default; }
+.city-err { padding: 0 18px 8px; font-size: 12.5px; color: #c0392b; }
+
+/* City picker: the customer's current City, State */
+.city-current { cursor: default; }
+.city-current span { display: grid; gap: 1px; }
+.city-current small { font-size: 12.5px; font-weight: 500; color: var(--muted); }
+
+/* Notification kinds: submitted (waiting) / verified (done) */
+.notif-ic.payment_submitted { background: #fdf0d2; color: #8a5a00; }
+.notif-ic.payment_verified { background: #e2edd0; color: #3f5a1c; }

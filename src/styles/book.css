@@ -1,0 +1,88 @@
+/* ====== Book Now / Choose Booking Type page ====== */
+.book-page { padding-bottom: 120px; }
+.book-wrap { max-width: 720px; margin: 0 auto; padding: 20px 16px 0; }
+
+.book-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 22px; }
+.circle-btn { width: 48px; height: 48px; border-radius: 50%; background: #fff; color: var(--ink); display: grid; place-items: center; box-shadow: var(--shadow); transition: .2s; }
+.circle-btn:hover { transform: scale(1.05); }
+.circle-btn.ring { box-shadow: 0 0 0 4px #e9e4d6, var(--shadow); }
+.circle-btn svg { width: 20px; height: 20px; }
+
+.book-title { font-size: clamp(24px, 5vw, 30px); font-weight: 700; color: var(--ink); line-height: 1.2; }
+.book-sub { color: var(--muted); font-size: 15px; margin: 6px 0 22px; }
+
+/* Type tabs */
+.type-tabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.type-tab {
+  background: #fff; border: 1.5px solid var(--line); border-radius: 20px;
+  padding: 18px 10px 20px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 4px;
+  color: var(--ink); transition: .25s; position: relative;
+}
+.type-tab svg { width: 22px; height: 22px; color: var(--ink); margin-bottom: 4px; }
+.type-tab b { font-size: 14px; font-weight: 600; line-height: 1.3; }
+.type-tab small { font-size: 11.5px; color: var(--muted); line-height: 1.35; }
+.type-tab:hover { border-color: var(--green-light); }
+.type-tab.active { background: #e9e8d8; border-color: var(--green); }
+.type-tab.active::after { content: ""; width: 34px; height: 4px; border-radius: 4px; background: var(--green); margin-top: 10px; }
+
+.fav-title { font-size: 20px; font-weight: 700; color: var(--ink); margin: 34px 0 16px; }
+
+/* Therapist grid */
+.therapist-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px 12px; }
+.t-card { min-width: 0; cursor: pointer; animation: fadeUp .45s ease both; }
+.t-photo { aspect-ratio: 4 / 5; border-radius: 16px; background: #e6e2d4; }
+.t-photo.media { background: #e6e2d4; }
+.t-photo.media.missing::after { font-size: 9px; padding: 4px 8px; white-space: normal; text-align: center; width: 85%; color: var(--muted); background: rgba(255,255,255,.7); }
+.t-card:hover .t-photo img { transform: scale(1.05); }
+.t-status { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--green); font-weight: 500; margin-top: 10px; }
+.t-status::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--green); }
+.t-name { font-size: 15px; font-weight: 600; color: var(--ink); margin-top: 2px; text-transform: capitalize; }
+.t-rating { font-size: 12px; color: var(--muted); display: flex; align-items: center; gap: 4px; }
+.t-rating i { color: var(--gold); font-style: normal; }
+.t-foot { display: flex; align-items: center; justify-content: space-between; gap: 6px; margin-top: 8px; }
+.t-tag { background: #e6e4d4; color: var(--text); font-size: 10.5px; padding: 3px 8px; border-radius: 999px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.t-price { font-weight: 700; color: var(--ink); font-size: 14px; flex-shrink: 0; }
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+
+/* Membership bar */
+.member-bar {
+  margin-top: 34px; background: var(--dark); border-radius: 20px; padding: 14px;
+  display: flex; align-items: center; gap: 10px; color: #fff;
+}
+.crown { width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid var(--gold); color: var(--gold); display: grid; place-items: center; flex-shrink: 0; }
+.marquee { flex: 1; overflow: hidden; white-space: nowrap; font-weight: 600; font-size: 14px; mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); }
+.marquee span { display: inline-block; animation: marquee 14s linear infinite; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.mini-btn { width: 38px; height: 38px; border-radius: 50%; border: 1px solid rgba(255,255,255,.25); display: grid; place-items: center; flex-shrink: 0; }
+.mini-btn:hover { background: rgba(255,255,255,.1); }
+.mini-btn svg { width: 16px; height: 16px; }
+.join-btn { background: var(--green); padding: 10px 18px; border-radius: 999px; font-weight: 600; font-size: 14px; white-space: nowrap; flex-shrink: 0; }
+.join-btn:hover { background: #7f9550; }
+
+/* Favourite card */
+.fav-card {
+  margin-top: 18px; background: #e9ecd9; border: 1px solid #cfd6b4; border-radius: 20px;
+  padding: 20px; display: flex; gap: 16px; align-items: flex-start;
+}
+.heart { width: 44px; height: 44px; border-radius: 50%; background: #fff; color: var(--green); display: grid; place-items: center; flex-shrink: 0; }
+.fav-card b { color: var(--ink); font-size: 16px; }
+.fav-card p { font-size: 14px; color: var(--muted); margin-top: 2px; }
+
+/* Toast */
+.toast { position: fixed; left: 50%; bottom: 110px; transform: translate(-50%, 20px); background: var(--ink); color: #fff; padding: 10px 18px; border-radius: 999px; font-size: 13px; opacity: 0; transition: .3s; z-index: 70; pointer-events: none; white-space: nowrap; }
+.toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+@media (max-width: 420px) {
+  .type-tab { padding: 14px 6px 16px; }
+  .type-tab b { font-size: 13px; }
+  .type-tab small { font-size: 10.5px; }
+  .t-tag { font-size: 9.5px; padding: 3px 6px; }
+  .t-price { font-size: 12.5px; }
+  .member-bar { gap: 8px; padding: 12px; }
+  .join-btn { padding: 9px 14px; font-size: 13px; }
+  .mini-btn { width: 34px; height: 34px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee span, .t-card { animation: none; }
+}

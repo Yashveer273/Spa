@@ -1,0 +1,20 @@
+/* ====== Content protection (see src/website/lib/protect.ts) ====== */
+/* Text can't be selected, except in forms and spots marked .allow-copy (booking IDs, offer codes) */
+.protected body { -webkit-user-select: none; user-select: none; }
+.protected input, .protected textarea, .protected select, .protected [contenteditable="true"], .protected .allow-copy {
+  -webkit-user-select: text; user-select: text;
+}
+/* Photos and video: no dragging, no long-press "Save image" on phones */
+.protected img, .protected video, .protected .media { -webkit-user-drag: none; -webkit-touch-callout: none; }
+
+/* Page blurred while a screenshot tool / app switcher has focus */
+.privacy-blur #root { filter: blur(18px); transition: filter .15s; }
+
+/* Printing / "Save as PDF" shows a notice instead of the page */
+@media print {
+  #root { display: none !important; }
+  body::after {
+    content: "© AAPNA SPA – this content is protected and can't be printed.";
+    display: block; padding: 40px; font: 600 18px/1.5 sans-serif; text-align: center;
+  }
+}

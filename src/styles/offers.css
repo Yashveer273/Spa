@@ -1,0 +1,63 @@
+/* ====== Offers page ====== */
+.offers-page { padding-bottom: 120px; }
+.offers-wrap { max-width: 1000px; padding-top: 20px; }
+
+.offers-hero {
+  position: relative; overflow: hidden;
+  background: var(--dark); color: #fff;
+  border-radius: 28px; padding: 30px 24px 26px;
+  box-shadow: var(--shadow);
+}
+.hero-spark { position: absolute; right: 18px; top: 50%; transform: translateY(-50%); width: 150px; height: 150px; fill: none; stroke: rgba(255,255,255,.1); stroke-width: 5; }
+.eyebrow-sm { font-size: 12px; letter-spacing: 4px; font-weight: 600; color: var(--green-light); }
+.offers-hero h1 { font-size: clamp(32px, 6vw, 44px); font-weight: 700; line-height: 1.15; margin: 6px 0 10px; }
+.lead-light { color: rgba(255,255,255,.82); font-size: 15px; max-width: 460px; position: relative; }
+.offers-hero .btn { margin-top: 26px; position: relative; max-width: 460px; }
+
+.offer-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; margin-top: 22px; }
+
+.deal { background: #fff; border-radius: 24px; padding: 24px; box-shadow: var(--shadow); display: flex; flex-direction: column; animation: dealIn .45s ease both; }
+@keyframes dealIn { from { opacity: 0; transform: translateY(14px); } }
+.deal-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.deal-icon { width: 52px; height: 52px; border-radius: 16px; background: #eef0e4; color: var(--green); display: grid; place-items: center; }
+.deal-icon svg { width: 22px; height: 22px; }
+.deal-badge { background: #f3ead2; color: #8a6d2b; font-size: 12px; font-weight: 600; padding: 4px 12px; border-radius: 999px; white-space: nowrap; }
+.deal h2 { font-size: 22px; font-weight: 700; color: var(--ink); margin: 20px 0 6px; }
+.deal p { font-size: 15px; color: var(--muted); flex: 1; }
+
+.code-box {
+  display: flex; align-items: center; gap: 10px;
+  margin-top: 20px; padding: 12px 14px;
+  border: 1.5px dashed #cfd6b4; background: #fafaf4; border-radius: 14px;
+}
+.code-box small { color: var(--muted); font-size: 13px; flex: 1; white-space: nowrap; }
+.code-box b { font-weight: 700; letter-spacing: 2px; color: var(--ink); font-size: 15px; }
+.copy-btn { display: inline-flex; align-items: center; gap: 4px; color: var(--green); font-size: 13px; font-weight: 600; padding: 4px 6px; border-radius: 8px; }
+.copy-btn:hover { background: #eef0e4; }
+.copy-btn svg { width: 14px; height: 14px; }
+.copy-btn.done { color: var(--ink); }
+
+.use-btn { margin-top: 12px; font-size: 13px; font-weight: 600; color: var(--green); letter-spacing: 1px; text-align: left; display: inline-flex; gap: 6px; align-self: flex-start; }
+.use-btn:hover span { transform: translateX(3px); }
+.use-btn span { transition: .2s; }
+
+.offers-empty { grid-column: 1 / -1; text-align: center; color: var(--muted); padding: 40px 16px; }
+
+.toast { position: fixed; left: 50%; bottom: 110px; transform: translate(-50%, 20px); background: var(--ink); color: #fff; padding: 10px 18px; border-radius: 999px; font-size: 13px; opacity: 0; transition: .3s; z-index: 70; pointer-events: none; white-space: nowrap; }
+.toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+@media (max-width: 640px) {
+  .hero-spark { width: 110px; height: 110px; top: 34%; right: 6px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .deal { animation: none; }
+}
+
+/* Very small phones (≤ 380px): let the code box fit without pushing "Copy" off screen */
+@media (max-width: 380px) {
+  .deal { padding: 20px 16px; }
+  .code-box { gap: 6px; padding: 10px 10px 10px 12px; }
+  .code-box small { white-space: normal; line-height: 1.2; font-size: 12px; }
+  .code-box b { letter-spacing: 1px; font-size: 14px; }
+  .copy-btn { padding: 4px; }
+}
