@@ -219,5 +219,3 @@ Use a host that runs Node.js (Render, Railway, a VPS) with HTTPS:
 1. `npm install` → `npm run build` → `npm start` (runs `node backend/server.js`).
 2. Set the values from `.env` as environment variables there, including a `SESSION_SECRET`.
 3. Use MongoDB Atlas for the database, and back it up regularly.
-#   S p a  
- 

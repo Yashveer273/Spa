@@ -162,12 +162,15 @@ function CheckoutPage({ t }: { t: Therapist }) {
     // Closed the QR and tapped Pay again without changing anything: reopen the same booking instead of making a new one
     if (upi && upiFor.current === key) { setUpiOpen(true); return; }
     setPaying(true);
-    try {
+    try {  const getupi=await api.getupi();  
+   
       var order = await api.createOrder(d);
-      
-      const getupi=await api.getupi();
+    
+      order.upiId = getupi?.upiId ?? "";
+      order.payeeName = getupi?.payeeName ?? "UPI Payee";
+
       upiFor.current = key;
-      console.log(order,getupi);
+   
       setUpi(order);
       setUpiOpen(true);
     } catch (err) {

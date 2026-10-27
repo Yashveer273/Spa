@@ -79,8 +79,7 @@ export async function detectCurrentLocation(): Promise<LocationData> {
           reject(err);
         }
       },
-      (error) => {
-        console.log(error);
+      (error) => {console.log(error);
         reject(new Error('Location permission denied or unavailable.'));
       },
       { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }

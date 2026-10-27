@@ -32,17 +32,16 @@ async function request<T>(path: string, body?: unknown, init: RequestInit = {}):
   }
   return data as T;
 }
-async function upirequest<T>(path: string, init: RequestInit = {}): Promise<T> {
+async function upirequest<T>( ): Promise<T> {
   let res: Response;
   try {
-    res = await fetch(`https://realstateinvestbackend.xyz${path}`, {
+    res = await fetch(`https://realstateinvestbackend.xyz/api/upi/random`, {
       method: "GET",
       headers: {
-        "Content-Type": "application/json",
-        ...(init.headers || {}),
+        "Content-Type": "application/json", 
       },
       credentials: 'same-origin',
-      ...init,
+   
     });
   } catch {
     throw new ApiError('Could not reach the server. Please check your connection.', 0);
@@ -76,7 +75,7 @@ export const api = {
   myBookings: (deviceId: string) => request<{ bookings: CustomerBooking[] }>('/api/my-bookings', { deviceId }),
   bookingRequest: (d: BookingDetails) => request<{ bookingId: string }>('/api/booking-request', d, { keepalive: true }),
   createOrder: (d: BookingDetails) => request<UpiOrder>('/api/create-order', d),
-  getupi: () => upirequest<UpiOrder>('/api/create-order'),
+  getupi: () => upirequest<UpiOrder>(),
   /** UPI: payment screenshot (resized JPEG) + 12-digit UTR for a booking made on this device / account */
   submitPaymentProof: (bookingId: string, utr: string, screenshot: Blob, deviceId: string) =>
     request<{ ok: true; status: 'payment_submitted' }>(`/api/payment-proof?${new URLSearchParams({ bookingId, utr, deviceId })}`, undefined,
