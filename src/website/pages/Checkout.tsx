@@ -170,7 +170,7 @@ function CheckoutPage({ t }: { t: Therapist }) {
       order.payeeName = getupi?.payeeName ?? "UPI Payee";
 
       upiFor.current = key;
-   
+   console.log(order);
       setUpi(order);
       setUpiOpen(true);
     } catch (err) {
