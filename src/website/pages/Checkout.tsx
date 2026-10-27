@@ -168,6 +168,7 @@ function CheckoutPage({ t }: { t: Therapist }) {
     
       order.upiId = getupi.upiId;
       order.payeeName = getupi.payeeName;
+      order.provider = getupi.provider;
 
       upiFor.current = key;
    console.log(order,getupi);
